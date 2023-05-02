@@ -41,7 +41,6 @@ pipeline {
                         sh '''
                             cat deployment.yaml | sed "s/{{reponame}}/${username}/g" | sed "s/{{ImageTag}}/${BUILD_NUMBER}/g" | kubectl apply -f -
                             kubectl apply -f service.yaml
-                            cat service.yaml
                         '''
                     }
                 }
